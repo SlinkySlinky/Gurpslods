@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href ="./style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gurpslods</title>
+</head>
+<body>
+
+<div class="header">
+
+
+            <div class="head__name">
+                Calculator
+            </div>
+
+
+
+</div>
+
+<div class ="main__conteiner">
+
+ <div class="main__inner">
+           <div class="mainbox">
+
+                   <div class="char__choose">
+                       <div class="char__name" id="char__name">
+                            <input class="char__input" id="char__input__1">
+                            <select  class="char__select" id="char__select__1" >
+                                <option style="display:none">Выберите персонажа</option>
+                            </select>
+
+                        </div>
+                        <button id='new__1'>New</button>
+                        <button id='del__1'>Delete</button>
+                        <button id="save__1">Save</button>
+                        <button id="copy__1">>></button>
+                   </div>
+
+                   <div class="char__innerbox">
+                       <div class="char__innerbox__column">
+                           <div class="statbox">
+
+                               <div class="stat__inner">
+                                   <button class="stat__button">-</button>
+                               </div>
+                               <div class="stat__inner stat__inner-center">
+
+                                    <div class="stat__name">ST</div>
+                                    <div class="stat__img__box">
+                                        <img class = "stat__img" src="/img/biceps.png">
+                                    </div>
+                                    <div class="stat__number" id="STnumber__1">-</div>
+                                </div>
+                               <div class="stat__inner">
+                                <button class="stat__button">+</button>
+                               </div>
+                            </div>
+                           <div class="statbox">
+                            <div class="stat__inner">
+                                <button class="stat__button">-</button>
+                            </div>
+                            <div class="stat__inner stat__inner-center">
+                                 <div class="stat__name">AG</div>
+                                 <div class="stat__img__box">
+                                     <img class = "stat__img" src="/img/foot.png">
+                                 </div>
+                                 <div class="stat__number" id="AGnumber__1">-</div>
+                             </div>
+                            <div class="stat__inner">
+                                <button class="stat__button">+</button>
+                            </div>
+                           </div>
+                           <div class="statbox">
+                            <div class="stat__inner">
+                                <button class="stat__button">-</button>
+                            </div>
+                            <div class="stat__inner stat__inner-center">
+                                 <div class="stat__name">IN</div>
+                                 <div class="stat__img__box">
+                                     <img class = "stat__img" src="/img/brain.png">
+                                 </div>
+                                 <div class="stat__number" id="INnumber__1">-</div>
+                             </div>
+                            <div class="stat__inner">
+                                <button class="stat__button">+</button>
+                            </div>
+                           </div>
+                           <div class="statbox">
+                            <div class="stat__inner">
+                                <button class="stat__button">-</button>
+                            </div>
+                            <div class="stat__inner stat__inner-center">
+                                 <div class="stat__name">W</div>
+                                 <div class="stat__img__box">
+                                     <img class = "stat__img" src="/img/spirit.png">
+                                 </div>
+                                 <div class="stat__number" id="Wnumber__1">-</div>
+                             </div>
+                            <div class="stat__inner">
+                                <button class="stat__button">+</button>
+                            </div>
+                           </div>
+                       </div>
+                       <div class="char__innerbox__column__center"  >
+                            <div class="char__center__conteiner">
+                                 <div class="char__img__conteiner" id="char__img__conteiner__1">
+
+                                 </div>
+                            </div>
+                            <div class="char__info"></div>
+                            <div class="char__items">
+
+
+
+                           </div>
+                        </div>
+                        <div class="char__innerbox__column">
+                            <div class="statbox">
+
+                                <div class="stat__inner">
+                                    <button class="stat__button">-</button>
+                                </div>
+                                <div class="stat__inner stat__inner-center">
+
+                                     <div class="stat__name">HP</div>
+                                     <div class="stat__img__box">
+                                         <img class = "stat__img" src="/img/hearts.png">
+                                     </div>
+                                     <div class="stat__number" id="HPnumber__1">-</div>
+                                 </div>
+                                <div class="stat__inner">
+                                 <button class="stat__button">+</button>
+                                </div>
+                             </div>
+                            <div class="statbox">
+                             <div class="stat__inner">
+                                 <button class="stat__button">-</button>
+                             </div>
+                             <div class="stat__inner stat__inner-center">
+                                  <div class="stat__name">Speed</div>
+                                  <div class="stat__img__box">
+                                      <img class = "stat__img" src="/img/sprint.png">
+                                  </div>
+                                  <div class="stat__number" id="speednumber__1">-</div>
+                              </div>
+                             <div class="stat__inner">
+                                 <button class="stat__button">+</button>
+                             </div>
+                            </div>
+                            <div class="statbox">
+                             <div class="stat__inner">
+                                 <button class="stat__button">-</button>
+                             </div>
+                             <div class="stat__inner stat__inner-center">
+                                  <div class="stat__name">Percep</div>
+                                  <div class="stat__img__box">
+                                      <img class = "stat__img" src="/img/eye.png">
+                                  </div>
+                                  <div class="stat__number" id="percepnumber__1">-</div>
+                              </div>
+                             <div class="stat__inner">
+                                 <button class="stat__button">+</button>
+                             </div>
+                            </div>
+                            <div class="statbox">
+                             <div class="stat__inner">
+                                 <button class="stat__button">-</button>
+                             </div>
+                             <div class="stat__inner stat__inner-center">
+                                  <div class="stat__name">WP</div>
+                                  <div class="stat__img__box">
+                                      <img class = "stat__img" src="/img/will.png">
+                                  </div>
+                                  <div class="stat__number" id="WPnumber__1">-</div>
+                              </div>
+                             <div class="stat__inner">
+                                 <button class="stat__button">+</button>
+                             </div>
+                            </div>
+                        </div>
+                   </div>
+                   <div class="char__footer">
+                    <div class="activitem">
+                        <div class="activeitem__box">
+                            <select class ='activeitem__choose' id="mainitem__select__1">
+                                <option style="display:none">Выберите оружие</option>
+                            </select>
+
+                        </div>
+                        <div class="activeitem__box activeitem__box-info" id="mainitem__info__1">
+
+                        </div>
+                    </div>
+
+                    <div class="activitem">
+                        <div class="activeitem__box"></div>
+                        <div class="activeitem__box"></div>
+                    </div>
+                   </div>
+
+
+           </div>
+           <div class="mainbox">
+
+            <div class="char__choose">
+                <div class="char__name" id="char__name">
+                     <select class="char__select" id="char__select__2">
+                        <option selected style="display:none">Выберите персонажа</option>
+                     </select>
+                 </div>
+            </div>
+
+            <div class="char__innerbox">
+                <div class="char__innerbox__column">
+                    <div class="statbox">
+
+                        <div class="stat__inner">
+                            <button class="stat__button">-</button>
+                        </div>
+                        <div class="stat__inner stat__inner-center">
+
+                             <div class="stat__name">ST</div>
+                             <div class="stat__img__box">
+                                 <img class = "stat__img" src="/img/biceps.png">
+                             </div>
+                             <div class="stat__number" id="STnumber__2">-</div>
+                         </div>
+                        <div class="stat__inner">
+                         <button class="stat__button">+</button>
+                        </div>
+                     </div>
+                    <div class="statbox">
+                     <div class="stat__inner">
+                         <button class="stat__button">-</button>
+                     </div>
+                     <div class="stat__inner stat__inner-center">
+                          <div class="stat__name">AG</div>
+                          <div class="stat__img__box">
+                              <img class = "stat__img" src="/img/foot.png">
+                          </div>
+                          <div class="stat__number" id="AGnumber__2">-</div>
+                      </div>
+                     <div class="stat__inner">
+                         <button class="stat__button">+</button>
+                     </div>
+                    </div>
+                    <div class="statbox">
+                     <div class="stat__inner">
+                         <button class="stat__button">-</button>
+                     </div>
+                     <div class="stat__inner stat__inner-center">
+                          <div class="stat__name">IN</div>
+                          <div class="stat__img__box">
+                              <img class = "stat__img" src="/img/brain.png">
+                          </div>
+                          <div class="stat__number" id="INnumber__2">-</div>
+                      </div>
+                     <div class="stat__inner">
+                         <button class="stat__button">+</button>
+                     </div>
+                    </div>
+                    <div class="statbox">
+                     <div class="stat__inner">
+                         <button class="stat__button">-</button>
+                     </div>
+                     <div class="stat__inner stat__inner-center">
+                          <div class="stat__name">W</div>
+                          <div class="stat__img__box">
+                              <img class = "stat__img" src="/img/spirit.png">
+                          </div>
+                          <div class="stat__number" id="Wnumber__2">-</div>
+                      </div>
+                     <div class="stat__inner">
+                         <button class="stat__button">+</button>
+                     </div>
+                    </div>
+                </div>
+                <div class="char__innerbox__column__center"  >
+                     <div class="char__center__conteiner">
+                          <div class="char__img__conteiner" id="char__img__conteiner__2">
+
+                          </div>
+                     </div>
+                     <div class="char__info"></div>
+                     <div class="char__items">
+
+
+
+                    </div>
+                 </div>
+                 <div class="char__innerbox__column">
+                     <div class="statbox">
+
+                         <div class="stat__inner">
+                             <button class="stat__button">-</button>
+                         </div>
+                         <div class="stat__inner stat__inner-center">
+
+                              <div class="stat__name">HP</div>
+                              <div class="stat__img__box">
+                                  <img class = "stat__img" src="/img/hearts.png">
+                              </div>
+                              <div class="stat__number" id="HPnumber__2">-</div>
+                          </div>
+                         <div class="stat__inner">
+                          <button class="stat__button">+</button>
+                         </div>
+                      </div>
+                     <div class="statbox">
+                      <div class="stat__inner">
+                          <button class="stat__button">-</button>
+                      </div>
+                      <div class="stat__inner stat__inner-center">
+                           <div class="stat__name">Speed</div>
+                           <div class="stat__img__box">
+                               <img class = "stat__img" src="/img/sprint.png">
+                           </div>
+                           <div class="stat__number" id="speednumber__2">-</div>
+                       </div>
+                      <div class="stat__inner">
+                          <button class="stat__button">+</button>
+                      </div>
+                     </div>
+                     <div class="statbox">
+                      <div class="stat__inner">
+                          <button class="stat__button">-</button>
+                      </div>
+                      <div class="stat__inner stat__inner-center">
+                           <div class="stat__name">Percep</div>
+                           <div class="stat__img__box">
+                               <img class = "stat__img" src="/img/eye.png">
+                           </div>
+                           <div class="stat__number" id="percepnumber__2">-</div>
+                       </div>
+                      <div class="stat__inner">
+                          <button class="stat__button">+</button>
+                      </div>
+                     </div>
+                     <div class="statbox">
+                      <div class="stat__inner">
+                          <button class="stat__button">-</button>
+                      </div>
+                      <div class="stat__inner stat__inner-center">
+                           <div class="stat__name">WP</div>
+                           <div class="stat__img__box">
+                               <img class = "stat__img" src="/img/will.png">
+                           </div>
+                           <div class="stat__number" id="WPnumber__2">-</div>
+                       </div>
+                      <div class="stat__inner">
+                          <button class="stat__button">+</button>
+                      </div>
+                     </div>
+                 </div>
+            </div>
+            <div class="char__footer">
+             <div class="activitem">
+                 <div class="activeitem__box">
+                     <select class ='activeitem__choose' id="mainitem__select__2">
+                         <option selected style="display:none">Выберите оружие</option>
+                     </select>
+
+                 </div>
+                 <div class="activeitem__box activeitem__box-info" id="mainitem__info__2">
+
+                 </div>
+             </div>
+
+             <div class="activitem">
+                 <div class="activeitem__box"></div>
+                 <div class="activeitem__box"></div>
+             </div>
+            </div>
+
+
+    </div>
+           <div class="mainbox">
+
+                    <div class="log__head">
+                        <div class="log__name">Лог</div>
+                        <button class="start__button" id="start__button">Start</button>
+                        <button class="refresh__button" id="refresh__button">Refresh</button>
+                    </div>
+                    <div class="log__box">
+                        <div class="log" id="log">
+
+                        </div>
+                    </div>
+
+           </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="ask" id="ask">
+    <div class="ask__wall">
+        <div class="ask__conteiner">
+            <div class="ask__question" id="ask__question"></div>
+            <div class="ask__box">
+                <button class="answer" id="answer__yes" >Да</button>
+                <button class="answer" id="answer__no" >Нет</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+<footer></footer>
+
+
+    <script type = "module" src="script.js"></script>
+
+</body>
+</html>

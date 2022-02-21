@@ -7,7 +7,7 @@ import {cloneChar, Initialisation} from './functions/gameFunctions.js';
 
 
 // Cunstruction
-
+//sdfsdfsdf
 
 statistic.createParametr("dodge");
 statistic.createParametr("hit");

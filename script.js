@@ -3,7 +3,7 @@ import { skills } from "./objects/skills.js";
 import { characters, createChar } from "./objects/characters.js";
 import { statistic }from "./objects/statistic.js";
 import {offHands, weapons} from './objects/weapons.js';
-import {cloneChar, Initialisation} from './functions/gameFunctions.js';
+import {cloneChar, Initialisation,getStorage,removeInStorage} from './functions/gameFunctions.js';
 
 
 // Cunstruction
@@ -57,10 +57,11 @@ function doFight(character1,character2){
 //Initialisation
 
 
-
+getStorage();
 Initialisation(characters);
 Initialisation(weapons);
 cloneChar(characters.buffer1,characters.void1)
+cloneChar(characters.buffer2,characters.void2)
 
 
 // Char Functions
@@ -70,17 +71,17 @@ function charSelection(num) {
            if (document.getElementById(lastChar) !== null)  document.getElementById(lastChar).removeAttribute('disabled');
 
             let charId = this.options[this.selectedIndex].id;
-            charId = charId.slice(0, charId.length - 1)
-            let character = characters[charId];
-
+            charId = charId.slice(0,charId.length -1);
+            this.setAttribute('value', charId);
+            //this.value = characters[charId].name
 
             // Img Set
-            document.getElementById(`char__img__conteiner__${num}`).innerHTML = `<img class = "char__img" src="/img/${character.img}"></img>`;
+            document.getElementById(`char__img__conteiner__${num}`).innerHTML = `<img class = "char__img" src="/img/${characters[charId].img}"></img>`;
             let buffer;
             (num == 1) ? buffer = characters.buffer1 : buffer = characters.buffer2;
 
 
-            cloneChar(buffer, character)
+            cloneChar(buffer, characters[charId])
             //Weapon
             changeWeapon(num,buffer)
 
@@ -249,7 +250,12 @@ function delChar(num) {
         for (let i = 1; i <=2; i++) {
             document.getElementById(char + i).remove();
             delete characters[char];
+            removeInStorage(char);
+
+            characters.buffer1 = characters.void1
+            charUpdate(num)
         }
+
     }
 
 
@@ -257,10 +263,10 @@ function delChar(num) {
 function copyChar(num){
     document.getElementById(`copy__${num}`).onclick = function() {
         let buffer;
-        let targer;
+        let target;
     (num == 1) ? buffer = characters.buffer1 : buffer = characters.buffer2;
-    (num == 1) ? targer = characters.buffer2 : buffer = characters.buffer1;
-        cloneChar(targer,buffer)
+    (num == 1) ? target = characters.buffer2 : target = characters.buffer1;
+        cloneChar(target,buffer)
         charUpdate(3-num)
     }
 
@@ -292,6 +298,8 @@ function saveChar(num) {
         let buffer;
         (num == 1 ) ? buffer = characters.buffer1 : buffer = characters.buffer2;
         cloneChar (characters[char], buffer);
+
+        localStorage.setItem(char, JSON.stringify(characters[char]));
     }
 
     }
@@ -303,13 +311,21 @@ function cancel() {}
 
 charSelection(1);
 charSelection(2);
+
 weaponSelection(1);
 weaponSelection(2);
+
 changeStat();
+
 newChar(1);
 delChar(1);
 saveChar(1);
 copyChar(1);
+
+newChar(2);
+delChar(2);
+saveChar(2);
+copyChar(2);
 // Process
 
 let start = document.getElementById('start__button').onclick = function(){

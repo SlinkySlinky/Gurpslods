@@ -30,19 +30,18 @@ class Character{
         this.mainWeapon = undefined;
         this.offHand = undefined;
 
-
     };
 
     // Methods
-    calculateStats = function() {
-        this.might = this.stats.ST-10,
-        this.evoid = this.stats.AG/2,
-        this.mind = this.stats.IN - 10,
+    // calculateStats = function() {
+    //     this.might = this.stats.ST-10,
+    //     this.evoid = this.stats.AG/2,
+    //     this.mind = this.stats.IN - 10,
 
 
-        this.curHP = this.stats.HP,
-        this.curWP = this.stats.WP
-    };
+    //     this.curHP = this.stats.HP,
+    //     this.curWP = this.stats.WP
+    // };
 
     makeAttack = function(enemy, attackSkill, weapon) {
         let character = this;
@@ -158,9 +157,6 @@ class Character{
         return (this.protection.lvl + this.offHand.value)
     };
 
-    charIni = function() {
-
-    }
 
 
 };
@@ -190,9 +186,9 @@ const characters = {
     war1: new Character("Воин 1", 'war','war1','war.jpg', 11,11,11,11,22,5.5,1,11),
     war2: new Character('Воин 2', 'war','war2','war.jpg', 11,11,11,11,22,5.5,1,11 ),
     dummy: new Character('Маникен', 'dummy', 'dummy','dummy.jpg', 11,11,11,11,1000,5.5,1,11 ),
-
-
 };
+
+
 Object.defineProperties(characters, {
     void1: {enumerable: false},
     void2: {enumerable: false},
@@ -200,12 +196,14 @@ Object.defineProperties(characters, {
     buffer2: {enumerable: false},
 });
 characters.void1.mainWeapon = weapons.void;
+characters.void2.mainWeapon = weapons.void;
+// characters.void1.calculateStats();
 
 characters.war1.mainWeapon = weapons.ironSword;
 createOwnSkill(characters.war1,'normalPunch');
 createOwnSkill(characters.war1,'normalDodge');
 increaseSkillLvl(characters.war1,'normalDodge');
-characters.war1.calculateStats();
+// characters.war1.calculateStats();
 
 characters.war2.mainWeapon = weapons.steelSword;
 characters.war2.offHand = offHands.ironShield;
@@ -213,15 +211,14 @@ createOwnSkill(characters.war2,'normalPunch');
 createOwnSkill(characters.war2,'normalDodge');
 createOwnSkill(characters.war2,'normalParry');
 createOwnSkill(characters.war2,'normalBlock');
-increaseSkillLvl(characters.war2,'normalDodge');
-characters.war2.calculateStats();
+// characters.war2.calculateStats();
 
 characters.dummy.mainWeapon = weapons.ironSword;
 characters.dummy.offHand = offHands.ironShield;
 createOwnSkill(characters.dummy,'normalDodge');
 createOwnSkill(characters.dummy,'normalParry');
 createOwnSkill(characters.dummy,'normalBlock');
-characters.dummy.calculateStats();
+// characters.dummy.calculateStats();
 
 
 export {characters}

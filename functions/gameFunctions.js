@@ -33,6 +33,22 @@ function mainItemIni(item) {
     document.getElementById(`mainitem__select__2`).innerHTML += `<option id='${item.id +2}'> ${item.name}</option>`
 };
 
+function getStorage() {
+   let keys = Object.keys(localStorage);
+    for (let key in keys) {
+        if (localStorage.key(key).includes('war')) {
+            takeFromStorage(localStorage.key(key),characters)
+        }
+
+    }
+function takeFromStorage(key,object) {
+    object[key] = JSON.parse(localStorage.getItem(key))
+}
+};
+
+function removeInStorage(key) {
+    localStorage.removeItem(key)
+}
 ////////////////////////
 
 
@@ -78,4 +94,4 @@ for (let key in source) {
 
 
 
-export {rollDie, getStats,createOwnSkill, increaseSkillLvl, cloneChar, Initialisation, charIni, mainItemIni}
+export {rollDie, getStats,createOwnSkill, increaseSkillLvl, cloneChar, Initialisation, charIni, mainItemIni,getStorage,removeInStorage}

@@ -178,17 +178,14 @@ footer {
 .activeitem__box{
     width:100%;
     height:50%;
-}
-.activeitem__box{
     display: flex;
-
-
+    text-align: center;
 }
-.activeitem__choose {
+
+.mainWeapon__select, .offHand__select{
 
     width:50%;
 }
-
 
 
 .statbox{
@@ -261,14 +258,14 @@ footer {
     height: 81vh;
     padding: 1.5vh;
     color:#333;
-    font-weight: 600;
+    font-weight: 400;
     background-color: #383333;
     border-bottom: 2px solid #383333;
 }
 .log{
 
     height: 100%;
-
+    padding: 3%;
     background-color: #efeeee;
     overflow-y: scroll;
 
@@ -278,18 +275,16 @@ footer {
 
     width:20%
 }
-.start__button{
+.fight__button,
+.statistic__button,
+.refresh__button,
+.battle__button{
     display:block;
     height: 100%;
-    width:12vh;
+    width:10vh;
     text-align: center;
 }
-.refresh__button{
-    display:block;
-    height: 100%;
-    width:12vh;
-    text-align: center;
-}
+
 .stat__button{
     background-color: rgb(63, 48, 37);
     color:antiquewhite;
@@ -301,6 +296,33 @@ footer {
     width:100%;
 }
 
+
+span.big {
+    font-weight: 600;
+}
+span.crithit {
+    color: rgb(82, 13, 114)
+}
+span.fullhit {
+    color: rgb(39, 37, 139)
+}
+span.halfhit {
+    color: rgb(14, 80, 80)
+}
+span.misshit {
+    color: rgb(180, 118, 61)
+}
+span.critmisshit {
+    color: rgb(95, 28, 28)
+}
+span.dmg {
+    font-weight: 600;
+    color: rgb(95, 28, 28)
+}
+span.health {
+    font-weight: 600;
+    color: rgb(126, 35, 23)
+}
 /* Дополнительно */
 .ask{
     display: none;

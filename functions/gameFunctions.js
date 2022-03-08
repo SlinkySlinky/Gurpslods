@@ -1,7 +1,9 @@
 
 import { skills } from "../objects/skills.js";
 import {weapons} from "../objects/weapons.js";
+import {offHands} from "../objects/weapons.js";
 import { characters } from "../objects/characters.js";
+import { statistic } from "../objects/statistic.js";
 
 
 function rollDie() {
@@ -22,6 +24,11 @@ function Initialisation(object) {
             mainItemIni(object[key])
         }
     break;
+    case (offHands):
+        for (let key in object) {
+            offHandsIni(object[key])
+        }
+    break;
     }
 };
 function charIni(item) {
@@ -29,8 +36,16 @@ function charIni(item) {
     document.getElementById(`char__select__2`).innerHTML += `<option id='${item.id +2}'> ${item.name}</option>`
 };
 function mainItemIni(item) {
-    document.getElementById(`mainitem__select__1`).innerHTML += `<option id='${item.id +1}'> ${item.name}</option>`
-    document.getElementById(`mainitem__select__2`).innerHTML += `<option id='${item.id +2}'> ${item.name}</option>`
+    document.getElementById(`mainWeapon__select__1`).innerHTML += `<option id='${item.id +1}'> ${item.name}</option>`
+    document.getElementById(`mainWeapon__select__2`).innerHTML += `<option id='${item.id +2}'> ${item.name}</option>`
+    if (item.hand == "oneHand") {
+    document.getElementById(`offHand__select__1`).innerHTML += `<option id='${item.id +1}'> ${item.name}</option>`
+    document.getElementById(`offHand__select__2`).innerHTML += `<option id='${item.id +2}'> ${item.name}</option>`
+    };
+};
+function offHandsIni(item) {
+    document.getElementById(`offHand__select__1`).innerHTML += `<option id='${item.id +1}'> ${item.name}</option>`
+    document.getElementById(`offHand__select__2`).innerHTML += `<option id='${item.id +2}'> ${item.name}</option>`
 };
 
 function getStorage() {
@@ -50,8 +65,6 @@ function removeInStorage(key) {
     localStorage.removeItem(key)
 }
 ////////////////////////
-
-
 
 
 
@@ -89,9 +102,19 @@ for (let key in source) {
 
 }
 
+function getProcent (number,denominator) {
+    return Math.floor(100*number/denominator) +'%'
+}
+function getMax (number,maxNumber) {
+        if (number > maxNumber) maxNumber = number;
+        console.log(statistic.maxRound)
+}
+function getMin(number,minNumber){
+    if (number < minNumber) minNumber = number;
+}
+function getMiddle(number,denominator,middleNumber) {
+    middleNumber = getProcent(number,denominator)
+}
 
 
-
-
-
-export {rollDie, getStats,createOwnSkill, increaseSkillLvl, cloneChar, Initialisation, charIni, mainItemIni,getStorage,removeInStorage}
+export {rollDie, getStats,createOwnSkill, increaseSkillLvl, cloneChar, Initialisation, charIni, mainItemIni,getStorage,removeInStorage,getProcent,getMax,getMiddle,getMin}

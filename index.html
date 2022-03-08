@@ -33,10 +33,10 @@
                             </select>
 
                         </div>
-                        <button id='new__1'>New</button>
-                        <button id='del__1'>Delete</button>
-                        <button id="save__1">Save</button>
-                        <button id="copy__1">>></button>
+                        <button id='new__1' class="new">New</button>
+                        <button id='del__1' class="del">Delete</button>
+                        <button id="save__1" class="save">Save</button>
+                        <button id="copy__1" class="copy">>></button>
                    </div>
 
                    <div class="char__innerbox">
@@ -185,19 +185,24 @@
                    <div class="char__footer">
                     <div class="activitem">
                         <div class="activeitem__box">
-                            <select class ='activeitem__choose' id="mainitem__select__1">
+                            <select class ='mainWeapon__select' id="mainWeapon__select__1">
                                 <option style="display:none">Выберите оружие</option>
                             </select>
 
                         </div>
-                        <div class="activeitem__box activeitem__box-info" id="mainitem__info__1">
+                        <div class="activeitem__box" id="mainWeapon__info__1">
 
                         </div>
                     </div>
 
                     <div class="activitem">
-                        <div class="activeitem__box"></div>
-                        <div class="activeitem__box"></div>
+                        <div class="activeitem__box">
+                            <select class ='offHand__select' id="offHand__select__1">
+                                <option style="display:none">Выберите оружие</option>
+                            </select>
+                        </div>
+                            <div class="activeitem__box " id="offHand__info__1">
+                        </div>
                     </div>
                    </div>
 
@@ -213,10 +218,10 @@
                      </select>
 
                  </div>
-                 <button id='new__2'>New</button>
-                 <button id='del__2'>Delete</button>
-                 <button id="save__2">Save</button>
-                 <button id="copy__2"><<</button>
+                 <button id='new__2' class="new">New</button>
+                 <button id='del__2' class="del">Delete</button>
+                 <button id="save__2" class="save">Save</button>
+                 <button id="copy__2" class="copy"><<</button>
             </div>
 
             <div class="char__innerbox">
@@ -365,20 +370,26 @@
             <div class="char__footer">
              <div class="activitem">
                  <div class="activeitem__box">
-                     <select class ='activeitem__choose' id="mainitem__select__2">
+                     <select class ='mainWeapon__select' id="mainWeapon__select__2">
                          <option style="display:none">Выберите оружие</option>
                      </select>
 
                  </div>
-                 <div class="activeitem__box activeitem__box-info" id="mainitem__info__2">
+                 <div class="activeitem__box activeitem__box-info" id="mainWeapon__info__2">
 
                  </div>
              </div>
 
              <div class="activitem">
-                 <div class="activeitem__box"></div>
-                 <div class="activeitem__box"></div>
-             </div>
+                <div class="activeitem__box">
+                    <select class ='offHand__select' id="offHand__select__2">
+                        <option style="display:none">Выберите оружие</option>
+                    </select>
+                </div>
+                    <div class="activeitem__box" id="offHand__info__2">
+
+                </div>
+            </div>
             </div>
 
 
@@ -387,7 +398,9 @@
 
                     <div class="log__head">
                         <div class="log__name">Лог</div>
-                        <button class="start__button" id="start__button">Start</button>
+                        <button class="fight__button" id="fight__button">Fight</button>
+                        <button class="battle__button" id="fight__button">Battle</button>
+                        <button class="statistic__button" id="statistic__button">Statistic</button>
                         <button class="refresh__button" id="refresh__button">Refresh</button>
                     </div>
                     <div class="log__box">

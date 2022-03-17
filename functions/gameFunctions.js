@@ -106,14 +106,15 @@ function getProcent (number,denominator) {
     return Math.floor(100*number/denominator) +'%'
 }
 function getMax (number,maxNumber) {
-        if (number > maxNumber) maxNumber = number;
-        console.log(statistic.maxRound)
+        if (number > maxNumber) {return number }
+        else return maxNumber;
 }
 function getMin(number,minNumber){
-    if (number < minNumber) minNumber = number;
+    if (number < minNumber) {return number }
+        else return minNumber;
 }
-function getMiddle(number,denominator,middleNumber) {
-    middleNumber = getProcent(number,denominator)
+function getMiddle(number,denominator) {
+    return Math.floor(number/denominator);
 }
 
 

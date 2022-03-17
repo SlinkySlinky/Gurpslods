@@ -36,9 +36,10 @@ class Character{
 
     // Methods
     calculateStats = function() {
-        this.might = this.stats.ST-10,
-        this.evoid = this.stats.AG/2,
-        this.mind = this.stats.IN - 10
+        this.might = Math.trunc((this.stats.ST-10)/2);
+        console.log(this.might);
+        this.evoid = this.stats.AG/2;
+        this.mind = Math.trunc((this.stats.IN - 10)/2)
 
 
 
@@ -151,8 +152,8 @@ class Character{
         };
         function makeDmg(dmg) {
         if (attackSkill.dmgType  == "phis" ) {
-            getMax(dmg,statistic.maxDmg);
-            getMin(dmg,statistic.minDmg);
+           statistic.maxDmg = getMax(dmg,statistic.maxDmg);
+           if (dmg >0) {statistic.minDmg = getMin(dmg,statistic.minDmg)};
             if( char == characters.buffer1) {statistic.allDmg1 += dmg
             } else statistic.allDmg2 += dmg;
             enemy.curHP = enemy.curHP - dmg;

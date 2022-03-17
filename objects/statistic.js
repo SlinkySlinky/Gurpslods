@@ -5,6 +5,7 @@ const statistic = {
     round: 0,
     allRounds: 0,
 
+    attaks: 0,
     attaks1: 0,
     attaks2: 0,
     crithit: 0,
@@ -45,7 +46,7 @@ const statistic = {
         }
     }   this.roundString = '';
         this.minRound = 1000;
-        this.minRound = 10000;
+        this.minDmg = 10000;
     },
 
 }

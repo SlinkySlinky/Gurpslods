@@ -234,10 +234,11 @@ function buttonHandler() {
         let statbox = button.closest('.statbox').querySelector('.stat__number');
         let statId = statbox.id;
         let num = getNum(statbox);
+        console.log(num)
         let buffer = getBuffer(num);
         let stat = statId.slice(0,statId.length - 1).replace('number__', '');
 
-        if (statbox.innerHTML == "-") buffer.stats[stat] = 0;
+       // if (statbox.innerHTML == "-") buffer.stats[stat] = 0;
 
          if (button.innerHTML == '+') {buffer.stats[stat] += getValueofChange()
          } else {buffer.stats[stat] -= getValueofChange() }
@@ -249,6 +250,7 @@ function buttonHandler() {
 
      statbox.innerHTML = buffer.stats[stat];
      buffer.calculateStats();
+
      function getValueofChange() {
      if( e.ctrlKey ) {
           switch(stat) {
@@ -335,6 +337,20 @@ function doFight(){
     let char2 = getBuffer(2);
     let timeOut = 100;
     statistic.round = 1;
+
+    refreshStats();
+        while (!isEnd()) {
+            doRound()
+            statistic.roundString +=('<p>---------------------------------</p>')
+        }
+
+    getWinner();
+    statistic.roundString += (`<p>Победитель: ${statistic.winner}</p>`);
+    statistic.roundString += ('<p>---------------------------------</p>')
+
+
+
+
     function doRound() {
         statistic.roundString +=(`Раунд ${statistic.round}`)
         char1.setProtection(char1.skills.normalDodge);
@@ -369,16 +385,7 @@ function doFight(){
     char2.curHP = char2.stats.HP;
     };
 
-    refreshStats();
-        while (!isEnd()) {
-            doRound()
-
-            statistic.roundString +=('<p>---------------------------------</p>')
-        }
-
-    getWinner();
-    statistic.roundString += (`<p>Победитель: ${statistic.winner}</p>`);
-    statistic.roundString += ('<p>---------------------------------</p>')
+    
 };
 
 
@@ -388,14 +395,14 @@ function doBattle(num) {
     while (statistic.fights < num) {
         statistic.fights++;
         doFight();
-        getMax(statistic.round,statistic.maxRound);
-        getMin(statistic.round,statistic.minRound);
+        statistic.maxRound = getMax(statistic.round,statistic.maxRound);
+        statistic.minRound = getMin(statistic.round,statistic.minRound);
         statistic.allRounds += statistic.round;
 
     }
-    getMiddle(statistic.allRounds,statistic.fights,statistic.middleRound)
-    getMiddle(statistic.allDmg1,statistic.attaks1,statistic.dps1)
-    getMiddle(statistic.allDmg2,statistic.attaks2,statistic.dps2)
+    statistic.middleRound = getMiddle(statistic.allRounds,statistic.fights)
+    statistic.dps1 = getMiddle(statistic.allDmg1,statistic.attaks1)
+    statistic.dps2 = getMiddle(statistic.allDmg2,statistic.attaks2)
     statistic.say(`<p>Сражений: ${statistic.fights }</p>`)
     statistic.say(`<p> Победы ${getProcent(statistic.winsOne,statistic.fights)} / ${getProcent(statistic.winsSecond,statistic.fights)} </p>`)
     statistic.say(`<p> Ничьи ${getProcent(statistic.draws,statistic.fights)} / (${getProcent(statistic.timeouts,statistic.fights)})</p>`)
@@ -407,6 +414,7 @@ function doBattle(num) {
 };
 
 function showStatistic() {
+    statistic.attaks = statistic.attaks1 + statistic.attaks2;
     statistic.say(`Попадания: <span class='crithit'>${getProcent(statistic.crithit,statistic.attaks)}</span> / <span class='fullhit'>${getProcent(statistic.hit,statistic.attaks)}</span> / <span class='halfhit'>${getProcent(statistic.halfhit,statistic.attaks)}</span> / <span class='misshit'>${getProcent(statistic.misshit,statistic.attaks)}</span> / <span class='critmisshit'>${getProcent(statistic.anticrithit,statistic.attaks)}</span>`);
     statistic.say(`Защита: ${getProcent(statistic.dodge,statistic.protects)}У / ${getProcent(statistic.parry,statistic.protects)}П / ${getProcent(statistic.block,statistic.protects)}Б`)
     statistic.say(`Макс. урон: ${statistic.maxDmg}, Мин. урон: ${statistic.minDmg}`)

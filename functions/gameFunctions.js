@@ -6,8 +6,12 @@ import { characters } from "../objects/characters.js";
 import { statistic } from "../objects/statistic.js";
 
 
-function rollDie() {
-    return Math.floor(Math.random()*19 +2)
+function rollDie(number,type) {
+    let roll=0;
+        for (let i=0; i<number; i++) {
+            roll += Math.floor(Math.random()*type+1)
+        }
+    return roll;
 };
 // Initialisation
 

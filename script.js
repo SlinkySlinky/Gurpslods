@@ -234,7 +234,6 @@ function buttonHandler() {
         let statbox = button.closest('.statbox').querySelector('.stat__number');
         let statId = statbox.id;
         let num = getNum(statbox);
-        console.log(num)
         let buffer = getBuffer(num);
         let stat = statId.slice(0,statId.length - 1).replace('number__', '');
 
@@ -385,7 +384,7 @@ function doFight(){
     char2.curHP = char2.stats.HP;
     };
 
-    
+
 };
 
 

@@ -36,10 +36,9 @@ class Character{
 
     // Methods
     calculateStats = function() {
-        this.might = Math.trunc((this.stats.ST-10)/2);
-        console.log(this.might);
-        this.evoid = this.stats.AG/2;
-        this.mind = Math.trunc((this.stats.IN - 10)/2)
+        this.might = Math.trunc(this.stats.ST-10);
+        this.evoid = this.stats.AG-6;
+        this.mind = Math.trunc(this.stats.IN - 10)
 
 
 
@@ -54,7 +53,7 @@ class Character{
 
     // Process
         let char = this;
-        let roll = rollDie();
+        let roll = rollDie(2,10);
         statistic.roundString += `<p><span class = 'big'>${char.name}</span> атакует <span class = 'big'>${enemy.name}</span>`;
         let hitType = checkHit()
         let hitValue = getHitValue()
@@ -146,7 +145,7 @@ class Character{
                 case 'full':
                     return weapon.fullDmg +attackSkill.dmg + dmgStat;
                 case 'half':
-                    return weapon.halfDmg +attackSkill.dmg + dmgStat;
+                    return weapon.halfDmg +attackSkill.dmg;
 
         }
         };
@@ -164,7 +163,7 @@ class Character{
         };
     };
     doDodge = function() {
-        let dies = rollDie();
+        let dies = rollDie(2,10);
         if (dies <= this.evoid + this.protection.lvl*0.5) {
             statistic.dodge++;
             statistic.roundString += ` но <span class='big'>${this.name}</span> <span class='misshit'>увернулся (${dies})</span>`
@@ -173,7 +172,7 @@ class Character{
     };
     doParry = function(hitType, hitValue, weapon) {
         let char = this;
-        let roll = rollDie();
+        let roll = rollDie(2,10);
         let parryType = getParryType();
 
         switch(hitType) {
@@ -224,11 +223,11 @@ class Character{
         function getParryValue(parryType) {
         switch (parryType) {
             case 'crit':
-                return weapon.critChance - rollDie();
+                return weapon.critChance - rollDie(2,10);
             case 'full':
-                return weapon.fullChance + char.protection.lvl- rollDie()
+                return weapon.fullChance + char.protection.lvl- rollDie(2,10)
             case 'half':
-                return weapon.halfChance + char.stats.percep - rollDie() ;
+                return weapon.halfChance + char.stats.percep - rollDie(2,10) ;
             default: return -1;
         }
         };
@@ -239,30 +238,6 @@ class Character{
     setProtection = function(protectSkill) {
             this.protection = protectSkill;
     };
-  /*  doDodge = function() {
-
-        let dodgeChance = this.evoid + this.protection.lvl*0.5;
-        if (rollDie() <= dodgeChance) {
-            return 1
-        } else return 0;
-    };
-    doParry = function(hitType,hitValue) {
-        switch (hitType) {
-            case 4:
-                if (this.mainWeapon.critChance - rollDie() >= hitValue) {return 1} else return 0;
-            case 3:
-                if (this.mainWeapon.fullChance + this.protection.lvl- rollDie() >= hitValue) {return 1} else
-                if (this.mainWeapon.halfChance + this.stats.percep - rollDie() >= hitValue) {return 2 } else return 0;
-            case 2:
-                if(this.mainWeapon.halfChance + this.stats.percep - rollDie() >= hitValue) {return 1 } else return 0;
-        }
-
-
-    };
-    doBlock = function() {
-        return (this.protection.lvl + this.offHand.value)
-    };
-*/
 
 
 };
@@ -313,10 +288,10 @@ characters.war1.mainWeapon = weapons.ironSword;
 characters.war1.offHand = offHands.ironShield;
 createOwnSkill(characters.war1,'normalPunch');
 createOwnSkill(characters.war1,'normalDodge');
-increaseSkillLvl(characters.war1,'normalDodge');
+//increaseSkillLvl(characters.war1,'normalDodge');
 characters.war1.calculateStats();
 
-characters.war2.mainWeapon = weapons.steelSword;
+characters.war2.mainWeapon = weapons.ironSword;
 characters.war2.offHand = offHands.ironShield;
 createOwnSkill(characters.war2,'normalPunch');
 createOwnSkill(characters.war2,'normalDodge');
